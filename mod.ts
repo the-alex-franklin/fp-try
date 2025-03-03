@@ -33,7 +33,7 @@ export function Try<T>(
  * @param fn - The function to be executed.
  * @returns A result object indicating success (with data) or failure (with error).
  */
-export function Try<T>(fn: () => T): Failure | Success<T> | Promise<Failure | Success<T>> {
+export function Try<T>(fn: () => T): Failure | Success<T> | Promise<Failure | Success<Awaited<T>>> {
 	try {
 		const result = fn();
 		if (result instanceof Promise) return result.then(Success, Failure);

@@ -1,6 +1,6 @@
 {
 	"name": "@2or3godzillas/fp-try",
-	"version": "1.3.5",
+	"version": "1.3.6",
 	"exports": "./mod.ts",
 	"description": "Functional programming try-catch",
 	"compilerOptions": {
