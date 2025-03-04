@@ -15,7 +15,11 @@ export function Success<T>(data: T): Success<T> {
  */
 export function Failure(error: unknown): Failure {
 	if (error instanceof Error) return { success: false, failure: true, error };
-	return { success: false, failure: true, error: new Error(typeof error === "string" ? error : JSON.stringify(error)) };
+	return {
+		success: false,
+		failure: true,
+		error: new Error(typeof error === "string" ? error : JSON.stringify(error)),
+	};
 }
 
 /**
@@ -26,7 +30,9 @@ export function Failure(error: unknown): Failure {
  */
 export function Try<T>(
 	fn: () => T,
-): Extract<T, Promise<unknown>> extends never ? Failure | Success<T> : Promise<Failure | Success<Awaited<T>>>;
+): Extract<T, Promise<unknown>> extends never
+	? Awaited<T> extends never ? Failure : Failure | Success<T>
+	: Promise<Failure | Success<Awaited<T>>>;
 /**
  * Executes a function and returns a result object indicating success or failure.
  *
