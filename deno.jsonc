@@ -1,10 +1,10 @@
 {
 	"name": "@2or3godzillas/fp-try",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"exports": "./mod.ts",
 	"description": "Functional programming try-catch",
 	"compilerOptions": {
-		"lib": ["ES2018", "DOM"]
+		"lib": ["ES2022", "DOM"]
 	},
 	"lint": {
 		"rules": {
